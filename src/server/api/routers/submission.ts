@@ -46,7 +46,7 @@ export const submissionRouter = createTRPCRouter({
         });
 
         if (emailSendResult.error) {
-          console.log(`Failed to send submission confirmation email to ${input.email} | ${emailSendResult.error}`)
+          console.log(`Failed to send submission confirmation / rejection email to ${input!.email} | ${JSON.stringify(emailSendResult.error)}`)
         }
 
         return result;
@@ -164,7 +164,7 @@ export const submissionRouter = createTRPCRouter({
         });
 
         if (emailSendResult.error) {
-          console.log(`Failed to send submission confirmation / rejection email to ${submission!.email} | ${emailSendResult.error}`)
+          console.log(`Failed to send submission confirmation / rejection email to ${submission!.email} | ${JSON.stringify(emailSendResult.error)}`)
         }
       }
 

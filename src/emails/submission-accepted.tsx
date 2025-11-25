@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-export const SubmissionRejectedTemplate = ({ personName, startupName }: {
+export const SubmissionAcceptedTemplate = ({ personName, startupName }: {
   personName: string,
   startupName: string
 }) => {
