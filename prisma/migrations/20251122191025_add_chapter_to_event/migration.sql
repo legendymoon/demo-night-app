@@ -1,5 +1,5 @@
 -- AlterTable
-ALTER TABLE "Event" ADD COLUMN     "chapterId" TEXT;
+ALTER TABLE "Event" ADD COLUMN "chapterId" TEXT;
 
 -- CreateTable
 CREATE TABLE "Chapter" (
