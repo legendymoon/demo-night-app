@@ -1,4 +1,4 @@
-import { type Feedback, PrismaClient, SubmissionStatus } from "@prisma/client";
+import { PrismaClient, SubmissionStatus } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -198,7 +198,7 @@ async function main() {
   await prisma.chapter.upsert({
     where: { name: "SF" },
     update: {
-      emoji: "1f680",
+      emoji: "1f680", // rocket emoji unified ID
     },
     create: {
       name: "SF",

@@ -29,6 +29,7 @@ export const SubmissionReceivedTemplate = ({ personName, startupName }: {
 
   const headerTitleStyle: React.CSSProperties = {
     textAlign: "center",
+
     fontSize: "24px",
     fontWeight: "600",
     color: "#2a2925",
@@ -54,7 +55,6 @@ export const SubmissionReceivedTemplate = ({ personName, startupName }: {
     lineHeight: "1.6",
     margin: "0 0 20px 0",
   }
-
   const dividerStyle: React.CSSProperties = {
     height: "1px",
     backgroundColor: "#e5e0da",

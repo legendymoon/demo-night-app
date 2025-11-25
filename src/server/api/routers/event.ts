@@ -71,6 +71,7 @@ export const eventRouter = createTRPCRouter({
     )
     .query(async () => {
       const currentEvent = await kv.getCurrentEvent();
+
       // Handle migration: add isPitchNight if missing from old data
       if (currentEvent && !("isPitchNight" in currentEvent)) {
         const oldEvent = currentEvent as Omit<kv.CurrentEvent, "isPitchNight">;
@@ -189,7 +190,7 @@ export const eventRouter = createTRPCRouter({
   getAdmin: protectedProcedure
     .input(z.string())
     .query(async ({ input }): Promise<AdminEvent | null> => {
-      return db.event.findUnique({
+      const res = db.event.findUnique({
         where: { id: input },
         include: {
           demos: { orderBy: { index: "asc" } },
@@ -199,6 +200,8 @@ export const eventRouter = createTRPCRouter({
           chapter: true,
         },
       });
+
+      return res as Promise<AdminEvent | null>;
     }),
   updateCurrent: protectedProcedure
     .input(z.string().nullable())
